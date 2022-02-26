@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Instrument Display 1</title>
+    <style>
+        #fullscreen{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #7777;
+        }
+    </style>
+    <script>
+        document.getElementById("fullscreen").addEventListener("click", function(){
+            if(document.fullscreenElement == null){
+                document.getElementById("fullscreen").requestFullscreen();
+            }else{
+                document.exitFullscreen();
+            }
+        });
+        // onload
+        document.onload = function(){
+            alert("loaded");
+            console.log("loaded.");
+            let ctx = document.getElementById("fullscreen").getContext("2d");
+            ctx.fillStyle = "#000";
+            ctx.fillRect(0,0,ctx.canvas.width,ctx.canvas.height);
+            // start in top left
+            ctx.moveTo(0,0);
+            // black  width 2
+            ctx.style("#f00",2);
+            // draw line to bottom right
+            ctx.lineTo(ctx.canvas.width,ctx.canvas.height);
+            ctx.stroke();
+            ctx.moveTo(ctx.canvas.width,0);
+            ctx.lineTo(0,ctx.canvas.height);
+            ctx.stroke();
+
+            // Print the text "unavaliable" in 14 point #292
+            ctx.font = "14px #292";
+            ctx.fillText("unavaliable",ctx.canvas.width/2,ctx.canvas.height/2);
+            // finish
+            ctx.closePath();
+        }
+    </script>
+</head>
+<body>
+
+<!-- fullscreen canvas -->
+<canvas id="fullscreen" width="640" height="480"></canvas>
+<div>
+    <button id="fullscreen2">This Button does nothing</button>
+    <p>
+        description of radio measurment device:
+        <ul>
+            <li>
+                <b>name:</b>
+                <i>Instrument Display 3</i>
+            </li>
+            <li>
+                <b>type:</b>
+                <i>Instrument Display</i>
+            </li>
+            <li>
+                <b>description:</b>
+                <i>
+                    This is a simple instrument display.
+                    It shows the current frequency and the current
+                    signal strength.
+                </i>
+            </li>
+            <li>
+                <b>author:</b>
+                <i>
+                </i>
+            </li>
+</ul>   </div>
+</body>
+</html>
