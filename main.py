@@ -98,7 +98,7 @@ def main():
     """
     logging.basicConfig(level=logging.DEBUG)
     app = QApplication(sys.argv)
-    main_window = MainWindow()
+    _main_window = MainWindow()
     sys.exit(app.exec_())
 
 
