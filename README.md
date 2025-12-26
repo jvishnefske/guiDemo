@@ -5,6 +5,7 @@ A lightweight Python desktop application that renders HTML5 canvas content insid
 ## Quick Start
 
 ```bash
+python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 python main.py
 ```
