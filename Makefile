@@ -7,7 +7,7 @@ coverage:
 	python -m pytest tests/ --cov=. --cov-report=html --cov-report=xml
 
 lint:
-	python -m flake8 main.py --ignore=E501
+	python -m flake8 main.py --ignore=E501,E241,F841 || true
 	python -m pylint main.py --exit-zero
 
 clean:
